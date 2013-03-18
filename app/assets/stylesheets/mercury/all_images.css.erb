@@ -53,7 +53,7 @@ form fieldset.buttons .commit input {
   background-position: center 90%;
 }
 .mercury-primary-toolbar .mercury-save-button em,
-.mercury-expander-button[data-button=save] em             { background-image: url(<%= "/firehouse"+"#{asset_path('save.png')}" %>) }
+.mercury-expander-button[data-button=save] em             { background-image: url(<%= "#{request.protocol}#{request.host_with_port}#{asset_path('mercury/toolbar/primary/save.png')}" %>) }
 .mercury-primary-toolbar .mercury-preview-button em,
 .mercury-expander-button[data-button=preview] em          { background-image: url(<%= asset_path 'mercury/toolbar/primary/preview.png' %>) }
 .mercury-primary-toolbar .mercury-undo-button em,
