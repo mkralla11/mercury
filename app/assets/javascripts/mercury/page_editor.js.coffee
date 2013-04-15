@@ -219,6 +219,8 @@ class @Mercury.PageEditor
 
 
   save: (callback) ->
+    Mercury.trigger('save', response)
+
     url = @saveUrl ? Mercury.saveUrl ? @iframeSrc()
     data = @serialize()
     data = {content: data}
