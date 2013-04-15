@@ -219,7 +219,7 @@ class @Mercury.PageEditor
 
 
   save: (callback) ->
-    Mercury.trigger('save', response)
+    Mercury.trigger('save')
 
     url = @saveUrl ? Mercury.saveUrl ? @iframeSrc()
     data = @serialize()
