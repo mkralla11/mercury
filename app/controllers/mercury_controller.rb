@@ -10,6 +10,8 @@ class MercuryController < ActionController::Base
   end
 
   def resource
+    require 'nokogiri'
+    require 'open-uri'
     render :action => "/#{params[:type]}/#{params[:resource]}"
   end
 
