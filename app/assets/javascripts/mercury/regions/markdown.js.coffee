@@ -229,8 +229,10 @@ class @Mercury.Regions.Markdown extends Mercury.Region
   @actions: {
 
     undo: -> @content(@history.undo())
+      Mercury.trigger("wrapped")
 
     redo: -> @content(@history.redo())
+      Mercury.trigger("wrapped")
 
     insertHTML: (selection, options) ->
       if options.value.get && element = options.value.get(0)
