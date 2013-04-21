@@ -133,7 +133,7 @@ class @Mercury.Regions.Full extends Mercury.Region
           @selection().selectNode(image.get(0), true)
           Mercury.trigger('button', {action: 'insertMedia'})
         else
-          Mercury.trigger('wrapped', image)
+          Mercury.trigger('wrapped', image, event)
 
     @element.on 'mouseup', =>
       return if @previewing
