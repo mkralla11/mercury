@@ -135,7 +135,7 @@ class @Mercury.Regions.Full extends Mercury.Region
         else
           y = event.pageY
           x = event.pageX
-          Mercury.trigger('wrapped', [image, y, x])
+          Mercury.trigger('ImgSizer', [image, y, x])
 
     @element.on 'mouseup', =>
       return if @previewing
