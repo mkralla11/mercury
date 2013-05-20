@@ -27,7 +27,7 @@
 #= require ./snippet_toolbar
 #= require ./region
 #= require ./uploader
-#= require ./image_pre_sizer
+#= require ./image_uploadsizer
 #= require_tree ./regions
 #= require_tree ./dialogs
 #= require_tree ./modals

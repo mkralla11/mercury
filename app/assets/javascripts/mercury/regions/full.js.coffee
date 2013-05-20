@@ -84,8 +84,8 @@ class @Mercury.Regions.Full extends Mercury.Region
       event.preventDefault()
       @focus()
       
-      Mercury.presizer(event.originalEvent.dataTransfer.files[0])
-      #Mercury.uploader(event.originalEvent.dataTransfer.files[0])
+      Mercury.uploadsizer(event.originalEvent.dataTransfer.files[0])
+      # Mercury.uploader(event.originalEvent.dataTransfer.files[0])
 
     # possible:drop custom event: we have to do this because webkit doesn't fire the drop event unless both dragover and
     # dragstart default behaviors are canceled.. but when we do that and observe the drop event, the default behavior
