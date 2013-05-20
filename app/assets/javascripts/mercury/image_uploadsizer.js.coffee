@@ -2,7 +2,7 @@
   Mercury.uploadsizer.show(file, options) if Mercury.config.uploading.enabled
   return Mercury.uploadsizer
 
-jQuery.extend Mercury.presizer,
+jQuery.extend Mercury.uploadsizer,
 
   show: (file, @options = {}) ->
     @file = new Mercury.uploadsizer.File(file)
