@@ -1,5 +1,6 @@
 @Mercury.presizer = (file, options) ->
-  Mercury.presizer.show(file, options)
+  Mercury.presizer.show(file, options) if Mercury.config.uploading.enabled
+  return Mercury.presizer
 
 jQuery.extend Mercury.presizer,
 
