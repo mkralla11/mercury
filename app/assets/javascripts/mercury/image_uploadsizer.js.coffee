@@ -6,7 +6,7 @@ jQuery.extend Mercury.uploadsizer,
 
   show: (file, @options = {}) ->
     @file = new Mercury.uploadsizer.File(file)
-    return Mercury.uploader(file) if !!@file.type.match(/image/)
+    return Mercury.uploader(file) if !@file.type.match(/image/)
 
     Mercury.trigger('focus:window')
     @initialize()
