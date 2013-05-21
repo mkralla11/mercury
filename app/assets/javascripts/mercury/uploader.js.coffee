@@ -204,6 +204,7 @@ class Mercury.uploader.File
     @readableSize = @size.toBytes()
     @name = @file.name || @file.fileName
     @type = @file.type || @file.fileType
+    @maxDim = @file.maxDimension
 
     # add any errors if we need to
     errors = []
@@ -242,4 +243,4 @@ class Mercury.uploader.MultiPartPost
     boundary = '--' + @boundary
     for own name, value of @formInputs
       @body += "#{boundary}\r\nContent-Disposition: form-data; name=\"#{name}\"\r\n\r\n#{unescape(encodeURIComponent(value))}\r\n"
-    @body += "#{boundary}\r\nContent-Disposition: form-data; name=\"#{@inputName}\"; filename=\"#{@file.name}\"\r\nContent-Type: #{@file.type}\r\nContent-Transfer-Encoding: binary\r\n\r\n#{@contents}\r\n#{boundary}--"
+    @body += "#{boundary}\r\nContent-Disposition: form-data; maxDim=\"#{@file.maxDim}\"; name=\"#{@inputName}\"; filename=\"#{@file.name}\"\r\nContent-Type: #{@file.type}\r\nContent-Transfer-Encoding: binary\r\n\r\n#{@contents}\r\n#{boundary}--"
