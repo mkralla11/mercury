@@ -38,7 +38,7 @@ jQuery.extend Mercury.uploadsizer,
 
   submitterSetup: (file, hide) ->
     curFile = file
-    var hider_func = hide
+    hider_func = hide
     $j = jQuery
     presizeSubmitter = $j('.mercury-uploadsizer-select').find('input[type=submit]')
 
