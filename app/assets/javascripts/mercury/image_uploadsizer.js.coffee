@@ -38,7 +38,7 @@ jQuery.extend Mercury.uploadsizer,
 
   submitterSetup: (file, hide) ->
     curFile = file
-    hider_func = hide
+    var hider_func = hide
     $j = jQuery
     presizeSubmitter = $j('.mercury-uploadsizer-select').find('input[type=submit]')
 
@@ -97,15 +97,13 @@ jQuery.extend Mercury.uploadsizer,
 
 
   hide: (delay = 0) ->
-    setTimeout =>
-      @element.animate {opacity: 0}, 100, 'easeInOutSine', =>
-        @overlay.animate {opacity: 0}, 100, 'easeInOutSine', =>
-          @overlay.hide()
-          @element.hide()
-          @reset()
-          @visible = false
-          Mercury.trigger('focus:window')
-    , delay * 200
+    @element.animate {opacity: 0}, 100, 'easeInOutSine', =>
+      @overlay.animate {opacity: 0}, 100, 'easeInOutSine', =>
+        @overlay.hide()
+        @element.hide()
+        @reset()
+        @visible = false
+        Mercury.trigger('focus:window')
 
 
   reset: ->
