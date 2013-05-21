@@ -17,7 +17,7 @@ jQuery.extend Mercury.uploadsizer,
     return if @initialized
     @build()
     @bindEvents()
-    @submitterSetup(file)
+    @submitterSetup(file, @hide)
     @initialized = true
 
 
@@ -36,8 +36,9 @@ jQuery.extend Mercury.uploadsizer,
 
 
 
-  submitterSetup: (file) ->
+  submitterSetup: (file, hide) ->
     curFile = file
+    hider_func = hide
     $j = jQuery
     presizeSubmitter = $j('.mercury-uploadsizer-select').find('input[type=submit]')
 
@@ -46,7 +47,7 @@ jQuery.extend Mercury.uploadsizer,
         temp = $j('.mercury-uploadsizer-select input[name=presizeRadio]:checked').val()
         breakpointer = 0;
         Mercury.uploader(curFile);
-        @hide()
+        hider_func
 
   bindEvents: ->
     Mercury.on 'resize', => @position()
