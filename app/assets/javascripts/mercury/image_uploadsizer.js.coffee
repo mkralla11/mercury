@@ -27,7 +27,7 @@ jQuery.extend Mercury.uploadsizer,
     @element = jQuery('<div>', {class: 'mercury-uploader', style: 'display:none'})
     @element.append('<div class="mercury-uploader-preview"><b><img/></b></div>')
     @element.append('<div class="mercury-uploader-details"></div>')
-    @element.append('<div class="mercury-uploadsizer-select"><div style="font-size:13px">Select Presizing Option:</div><div style="font-style:italic">("presize" represents the max width and height of an image, in order to save server storage space.)</div><input type="radio" name="presizeRadio" value="small" checked><b>Small</b> (max: 300px)</input><input type="radio" name="presizeRadio" value="medium"><b>Medium</b> (max: 700px)</input><input type="radio" name="presizeRadio" value="large"><b>Large</b> (max: 1000px)</input><input type="submit" value="Presize And Upload" name="commit"></div>')
+    @element.append('<div class="mercury-uploadsizer-select"><div style="font-size:13px"><b>Select Presizing Option:</b></div><input type="radio" name="presizeRadio" value="small" checked><b>Small</b> (max: 300px)</input><br/><input type="radio" name="presizeRadio" value="medium"><b>Medium</b> (max: 700px)</input><br/><input type="radio" name="presizeRadio" value="large"><b>Large</b> (max: 1000px)</input><br/><input type="submit" value="Presize And Upload" name="commit"><div style="font-style:italic">("presize" represents the max width and height of an image, in order to save server storage space.)</div></div>')
 
     @overlay = jQuery('<div>', {class: 'mercury-uploader-overlay', style: 'display:none'})
 

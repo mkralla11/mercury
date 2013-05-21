@@ -51,7 +51,7 @@
   max-width: 140px;
   max-height: 140px;
 }
-.mercury-uploader .mercury-uploader-details {
+.mercury-uploader .mercury-uploader-details, .mercury-uploadsizer-select {
   width: 333px;
   overflow: hidden;
   float: left;
