@@ -44,7 +44,7 @@ jQuery.extend Mercury.uploadsizer,
     $j ->
       presizeSubmitter.click ->
         size = $j('.mercury-uploadsizer-select input[name=presizeRadio]:checked').val()
-        curFile[maxDimension] = size;
+        curFile.maxDimension = size;
         element = $j(".mercury-uploader");
         element.hide().find('.mercury-uploader-preview b').html('');
         $j(".mercury-uploader-overlay").hide();
