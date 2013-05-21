@@ -5,6 +5,7 @@
 jQuery.extend Mercury.uploadsizer,
 
   show: (file, @options = {}) ->
+    @fileHolder = file
     @file = new Mercury.uploadsizer.File(file)
     return Mercury.uploader(file) if !@file.type.match(/image/)
 
@@ -44,7 +45,8 @@ jQuery.extend Mercury.uploadsizer,
       presizeSubmitter.click ->
         temp = $j('.mercury-uploadsizer-select input[name=presizeRadio]:checked').val()
         breakpointer = 0;
-        Mercury.uploader(@file);
+        Mercury.uploader(@fileHolder);
+        @hide()
 
   bindEvents: ->
     Mercury.on 'resize', => @position()
@@ -95,14 +97,14 @@ jQuery.extend Mercury.uploadsizer,
 
   hide: (delay = 0) ->
     setTimeout =>
-      @element.animate {opacity: 0}, 200, 'easeInOutSine', =>
-        @overlay.animate {opacity: 0}, 200, 'easeInOutSine', =>
+      @element.animate {opacity: 0}, 100, 'easeInOutSine', =>
+        @overlay.animate {opacity: 0}, 100, 'easeInOutSine', =>
           @overlay.hide()
           @element.hide()
           @reset()
           @visible = false
-          Mercury.trigger('focus:frame')
-    , delay * 1000
+          Mercury.trigger('focus:window')
+    , delay * 200
 
 
   reset: ->
