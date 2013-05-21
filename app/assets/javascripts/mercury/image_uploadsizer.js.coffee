@@ -46,8 +46,8 @@ jQuery.extend Mercury.uploadsizer,
       presizeSubmitter.click ->
         temp = $j('.mercury-uploadsizer-select input[name=presizeRadio]:checked').val()
         breakpointer = 0;
-        Mercury.uploader(curFile);
         hider_func
+        Mercury.uploader(curFile);
 
   bindEvents: ->
     Mercury.on 'resize', => @position()
