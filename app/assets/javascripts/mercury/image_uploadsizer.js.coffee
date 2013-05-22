@@ -6,6 +6,10 @@ jQuery.extend Mercury.uploadsizer,
 
   show: (file, @options = {}) ->
     @file = new Mercury.uploadsizer.File(file)
+    if @file.errors
+      alert("Error: #{@file.errors}")
+      return
+    return unless @supported()
     return Mercury.uploader(file) if !@file.type.match(/image/)
 
     Mercury.trigger('focus:window')
@@ -23,7 +27,22 @@ jQuery.extend Mercury.uploadsizer,
     @submitterSetup(file)
     @initialized = true
 
+  supported: ->
+    xhr = new XMLHttpRequest
 
+    if window.Uint8Array && window.ArrayBuffer && !XMLHttpRequest.prototype.sendAsBinary
+      XMLHttpRequest::sendAsBinary = (datastr) ->
+        ui8a = new Uint8Array(datastr.length)
+        ui8a[index] = (datastr.charCodeAt(index) & 0xff) for data, index in datastr
+        @send(ui8a.buffer)
+
+    return !!(xhr.upload && xhr.sendAsBinary && (Mercury.uploader.fileReaderSupported() || Mercury.uploader.formDataSupported()))
+
+  fileReaderSupported: ->
+    !!(window.FileReader)
+  
+  formDataSupported: ->
+    !!(window.FormData)
 
 
   build: ->
