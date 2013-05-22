@@ -14,7 +14,10 @@ jQuery.extend Mercury.uploadsizer,
 
 
   initialize: (file) ->
-    return if @initialized
+    if @initialized
+      @submitterSetup(file)
+      return
+
     @build()
     @bindEvents()
     @submitterSetup(file)
@@ -40,6 +43,8 @@ jQuery.extend Mercury.uploadsizer,
     curFile = file
     $j = jQuery
     presizeSubmitter = $j('.mercury-uploadsizer-select').find('input[type=submit]')
+    presizeSubmitter.unbind()
+
 
     $j ->
       presizeSubmitter.click ->
